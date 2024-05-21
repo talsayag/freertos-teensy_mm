@@ -37,7 +37,7 @@
 #include "event_responder_support.h"
 
 
-#if !(defined ARDUINO_TEENSY40 || defined ARDUINO_TEENSY41 || defined __MK64FX512__ || defined __MK66FX1M0__)
+#if !(defined ARDUINO_TEENSY40 || defined ARDUINO_TEENSY41 || defined ARDUINO_TEENSY_MICROMOD || defined __MK64FX512__ || defined __MK66FX1M0__)
 #error "Unsupported board"
 #endif
 
@@ -212,9 +212,9 @@ FLASHMEM _Unwind_Reason_Code trace_fcn(_Unwind_Context* ctx, void* depth) {
  */
 FLASHMEM void assert_blink(const char* file, int line, const char* func, const char* expr) {
     portDISABLE_INTERRUPTS();
-#if defined ARDUINO_TEENSY40 || defined ARDUINO_TEENSY41
+#if defined ARDUINO_TEENSY40 || defined ARDUINO_TEENSY41 || defined ARDUINO_TEENSY_MICROMOD
     NVIC_SET_PRIORITY(IRQ_USB1, (configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY - 1) << (8 - configPRIO_BITS));
-#endif // ARDUINO_TEENSY40 || ARDUINO_TEENSY41
+#endif // ARDUINO_TEENSY40 || ARDUINO_TEENSY41 || defined ARDUINO_TEENSY_MICROMOD
 
     EXC_PRINTF(PSTR("\r\nASSERT in [%s:%u]\t"), file, line);
     EXC_PRINTF(PSTR("%s(): "), func);

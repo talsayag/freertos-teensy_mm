@@ -35,7 +35,7 @@
 #include "FreeRTOS.h"
 #include "semphr.h"
 
-#if defined ARDUINO_TEENSY40 || defined ARDUINO_TEENSY41
+#if defined ARDUINO_TEENSY40 || defined ARDUINO_TEENSY41 || defined ARDUINO_TEENSY_MICROMOD
 #include "imxrt.h"
 #elif defined __MK64FX512__ || defined __MK66FX1M0__
 #include "kinetis.h"

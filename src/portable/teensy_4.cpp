@@ -23,7 +23,7 @@
  * @date    04.06.2023
  */
 
-#if defined ARDUINO_TEENSY40 || defined ARDUINO_TEENSY41
+#if defined ARDUINO_TEENSY40 || defined ARDUINO_TEENSY41 || defined ARDUINO_TEENSY_MICROMOD
 #include <cstring>
 #include <malloc.h>
 #include <tuple>
@@ -606,4 +606,4 @@ FLASHMEM void print_stack_trace(TaskHandle_t task) {
     EXC_FLUSH();
 }
 } // namespace freertos
-#endif // ARDUINO_TEENSY40 || ARDUINO_TEENSY41
+#endif // ARDUINO_TEENSY40 || ARDUINO_TEENSY41 || defined ARDUINO_TEENSY_MICROMOD

@@ -201,6 +201,10 @@ static constexpr bool digitalPinHasPWM(uint8_t p) {
 static constexpr bool digitalPinHasPWM(uint8_t p) {
     return ((p) <= 15 || (p) == 18 || (p) == 19 || ((p) >= 22 && (p) <= 25) || ((p) >= 28 && (p) <= 31) || (p) == 33);
 }
+#elif defined __IMXRT1062__ && defined ARDUINO_TEENSY_MICROMOD
+static constexpr bool digitalPinHasPWM(uint8_t p) {
+    return (((p) <= 15 || (p) == 18 || (p) == 19 || ((p) >= 22 && (p) <= 25) || (p) == 28 || (p) == 29 || (p) == 33 || (p) == 40 || (p) == 41 || (p) == 45);
+}
 #elif defined __MK64FX512__
 static constexpr bool digitalPinHasPWM(uint8_t p) {
     return ((p) >= 2 && (p) <= 10) || (p) == 14 || ((p) >= 20 && (p) <= 23) || (p) == 29 || (p) == 30 || ((p) >= 35 && (p) <= 38);
