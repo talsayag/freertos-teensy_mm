@@ -130,7 +130,7 @@ void assert_blink(const char*, int, const char*, const char*) __attribute__((nor
 }
 #define ASSERT_LOG(_msg) assert_blink("", __LINE__, __PRETTY_FUNCTION__, #_msg);
 #else
-#if defined ARDUINO_TEENSY40 || defined ARDUINO_TEENSY41
+#if defined ARDUINO_TEENSY40 || defined ARDUINO_TEENSY41 || defined ARDUINO_TEENSY_MICROMOD
 #define PROGMEM_FREERTOS __attribute__((section(".progmem")))
 #else
 #define PROGMEM_FREERTOS
